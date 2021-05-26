@@ -11,6 +11,7 @@
   <-
   +siguiendo;
   -te_elijo;
+  .send(A, tell, asignado);
   .print("estoy siguiendo a ", A).
 
 +te_elijo[source(A)]: siguiendo

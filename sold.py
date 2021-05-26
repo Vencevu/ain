@@ -33,7 +33,7 @@ class BDISold(BDITroop):
                         minDist = dist
                         elegido = listaMedicos[n]
                     n += 1
-            return elegido
+            return tuple([elegido])
         
         @actions.add_function(".eliminarElem",(tuple,tuple, ))
         def _eliminarElem(elem,l):

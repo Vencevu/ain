@@ -33,12 +33,12 @@
   +agents([]);
   +pos([]);
   .send(M, tell, seguir);
-  .wait(1000); 
-  !!elegirmejor;
+  .wait(2000); 
+  +elegirmejor;
   -myMedics(_).
 
 +mybid(Pos)[source(A)]
-<- 
+  <- 
   .print("Recibo propuesta");
   ?agents(Ag);
   ?pos(Po); 
@@ -48,23 +48,30 @@
   -+pos(Po1);
   -mybid(_).
 
-+!elegirmejor: agents(Ag) & pos(Po)
++elegirmejor: agents(Ag) & pos(Po)
   <-
   .masCercano(Ag, Po, X);
   .print("Selecciono el mejor");
   .send(X, tell, te_elijo).
 
++asignado[source(A)]
+  <-
+  .print("Listo");
+  -asignado;
+  -elegirmejor.
+
 +ocupado(P)[source(A)]: agents(Ag) & pos(Po)
-<-
+  <-
   .eliminarElem([A], Ag, Ag1);
   .eliminarElem(P, Po, Po1);
   -+agents(Ag1);
   -+pos(Po1);
-  !!elegirmejor;
+  +elegirmejor;
   .print("Buscando otro medico en ", Ag1);
   -ocupado(_).
 
-+ir(lugar)
++ir(R1)
   <-
-  .print("De camino a ", lugar);
-  .goto(lugar).
+  .print("De camino a ", R1);
+  .goto(R1);
+  -ir(_).
