@@ -49,14 +49,11 @@
 
 +!elegirmejor: agents(Ag) & pos(Po)
   <-
-  .print("Selecciono el mejor");
   .masCercano(Ag, Po, X);
-  .print(X);
-  .send(X, tell, te_elijo);
-  -+pos([]);
-  -+agents([]).
+  .print("Selecciono el mejor ",X);
+  .send(X, tell, te_elijo).
 
-+ocu[source(A)]: agents(Ag) & pos(Po)
++ocupado[source(A)]: agents(Ag) & pos(Po)
 <-
-  .eliminarElem(Ag, A);
-  .print("Buscando otro medico").
+  .eliminarElem([A], Ag, Ag1);
+  .print("Buscando otro medico en ", Ag1).

@@ -35,10 +35,10 @@ class BDISold(BDIFieldOp):
                     n += 1
             return elegido
         
-        @actions.add_function(".eliminarElem",(string,tuple, ))
+        @actions.add_function(".eliminarElem",(tuple,tuple, ))
         def _eliminarElem(elem,l):
-            res = l.remove(elem)
-            return res
+            e = elem[0]
+            return l[:l.index(e)] + l[l.index(e) + 1:]
 
 
 
