@@ -12,7 +12,7 @@ from agentspeak.stdlib import actions as asp_action
 from pygomas.ontology import HEALTH
 from pygomas.agent import LONG_RECEIVE_WAIT
 
-class BDISold(BDIFieldOp):
+class BDISold(BDITroop):
 
     def add_custom_actions(self, actions):
         super().add_custom_actions(actions)

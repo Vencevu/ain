@@ -18,6 +18,13 @@
         "password": "secret",
         "amount": 4,
         "asl": "soldado.asl"
+      },
+      {
+        "rank": "generalpy.BDIGen",
+        "name": "general",
+        "password": "secret",
+        "amount": 1,
+        "asl": "general.asl"
       }
     ]
 }

@@ -1,5 +1,6 @@
 +flag (F)
 <-
+  .register_service("servicio_soldado");
   .create_control_points(F,25,3,C);
   +control_points(C);
   .length(C,L);
@@ -50,7 +51,7 @@
 +!elegirmejor: agents(Ag) & pos(Po)
   <-
   .masCercano(Ag, Po, X);
-  .print("Selecciono el mejor ",X);
+  .print("Selecciono el mejor");
   .send(X, tell, te_elijo).
 
 +ocupado(P)[source(A)]: agents(Ag) & pos(Po)
@@ -62,3 +63,8 @@
   !!elegirmejor;
   .print("Buscando otro medico en ", Ag1);
   -ocupado(_).
+
++ir(lugar)
+  <-
+  .print("De camino a ", lugar);
+  .goto(lugar).
