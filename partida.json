@@ -1,0 +1,23 @@
+{
+    "host": "localhost",
+    "manager": "m",
+    "manager_password": "secret",
+    "service": "s",
+    "service_password": "secret",
+    "allied": [
+      {
+        "rank": "BDIMedic",
+        "name": "med",
+        "password": "secret",
+        "amount": 4,
+        "asl": "medico.asl"
+      },
+      {
+        "rank": "sold.BDISold",
+        "name": "sold",
+        "password": "secret",
+        "amount": 4,
+        "asl": "soldado.asl"
+      }
+    ]
+}
