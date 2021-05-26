@@ -1,31 +1,13 @@
 +flag (F)
-<-
+  <-
+  .wait(2000);
+  .get_service("general");
   .register_service("servicio_soldado");
-  .create_control_points(F,25,3,C);
-  +control_points(C);
-  .length(C,L);
-  +total_control_points(L);
-  +patrolling;
-  +patroll_point(0);
-  .print("Got control points");
   .get_medics.
 
-+target_reached(T): patrolling
++general(G)
   <-
-  ?patroll_point(P);
-  -+patroll_point(P+1);
-  -target_reached(T).
-
-+patroll_point(P): total_control_points(T) & P<T
-  <-
-  ?control_points(C);
-  .nth(P,C,A);
-  .goto(A).
-
-+patroll_point(P): total_control_points(T) & P==T
-  <-
-  -patroll_point(P);
-  +patroll_point(0).
+  .print("Mi general es ", G).
 
 +myMedics(M)
 <-
@@ -33,7 +15,7 @@
   +agents([]);
   +pos([]);
   .send(M, tell, seguir);
-  .wait(2000); 
+  .wait(3000); 
   +elegirmejor;
   -myMedics(_).
 

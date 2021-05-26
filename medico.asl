@@ -1,3 +1,12 @@
++flag (F)
+  <-
+  .wait(2000);
+  .get_service("general").
+
++general(G)
+  <-
+  .print("Mi general es ", G).
+
 +seguir[source(A)]: not siguiendo
 <-
 ?name(N);

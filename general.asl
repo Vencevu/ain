@@ -1,8 +1,8 @@
 +flag (F)
   <-
+  .register_service("general");
   .f(F, R);
   .print("Posiciones ",R);
-  .register_service("general");
   +sitios(R);
   .get_service("servicio_soldado");
   .print("Soy general Robot2: la venganza").
