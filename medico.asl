@@ -15,6 +15,7 @@
 
 +te_elijo[source(A)]: siguiendo
   <-
-  .send(A, tell, ocupado);
+  ?position(P);
+  .send(A, tell, ocupado(P));
   -te_elijo;
   .print("Ya estoy siguiendo a alguien").

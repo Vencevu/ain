@@ -37,7 +37,10 @@ class BDISold(BDIFieldOp):
         
         @actions.add_function(".eliminarElem",(tuple,tuple, ))
         def _eliminarElem(elem,l):
-            e = elem[0]
+            if len(elem) == 1:
+                e = elem[0]
+            else:
+                e = elem
             return l[:l.index(e)] + l[l.index(e) + 1:]
 
 
