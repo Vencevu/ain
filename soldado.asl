@@ -58,5 +58,5 @@
 
 +ocu[source(A)]: agents(Ag) & pos(Po)
 <-
-  
+  .eliminarElem(Ag, A);
   .print("Buscando otro medico").
