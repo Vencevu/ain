@@ -2,7 +2,6 @@
   <-
   .register_service("general");
   .f(F, R);
-  .print("Posiciones ",R);
   +sitios(R);
   .get_service("servicio_soldado");
   .print("Soy general Robot2: la venganza").
@@ -19,17 +18,12 @@
 
 +mandarTropas(S): sitios(R) & not(S == [])
   <-
-  .print("Lista de tropas", S);
   .print("MANDO TROPAS");
   .primerElem(S, S1);
   .primerElem(R, R1);
-  .print("Primer soldado", S1);
-  .print("Posicion del primer soldado", R1);
   .send(S1, tell, ir(R1));
   .del(0,S,Sn);
   .del(0,R,Rn);
-  .print("Lista restante de soldados", Sn);
-  .print("Lista de posiciones de los soldados restantes", Rn);
   -+sitios(Rn);
   -mandarTropas(_);
   +continue(Sn).

@@ -13,23 +13,20 @@
 ?name(N);
 ?posini(Pi);
 .send(A, tell, mybid(Pi));
--seguir;
-.print("enviada propuesta de ayuda a ",A).
+-seguir.
 
 
 +te_elijo[source(A)]: not siguiendo
   <-
   +siguiendo;
   -te_elijo;
-  .send(A, tell, asignado);
-  .print("estoy siguiendo a ", A).
+  .send(A, tell, asignado).
 
 +te_elijo[source(A)]: siguiendo
   <-
   ?posini(Pi);
   .send(A, tell, ocupado(Pi));
-  -te_elijo;
-  .print("Ya estoy siguiendo a alguien").
+  -te_elijo.
 
 +destino(R1)[source(A)]
   <-
