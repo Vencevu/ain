@@ -1,6 +1,5 @@
 +flag (F)
   <-
-  .wait(2000);
   .get_service("general");
   .register_service("servicio_soldado");
   .get_medics.
@@ -21,7 +20,6 @@
 
 +mybid(Pos)[source(A)]
   <- 
-  .print("Recibo propuesta");
   ?agents(Ag);
   ?pos(Po); 
   .concat(Ag, [A], Ag1);
@@ -33,17 +31,20 @@
 +elegirmejor: agents(Ag) & pos(Po)
   <-
   .masCercano(Ag, Po, X);
-  .print("Selecciono el mejor");
+  .print("Selecciono ", X);
   .send(X, tell, te_elijo).
 
-+asignado[source(A)]
++asignado[source(Med)]
   <-
-  .print("Listo");
+  .print("Mi medico es ", Med);
   -asignado;
+  +mimedico(Med);
   -elegirmejor.
 
 +ocupado(P)[source(A)]: agents(Ag) & pos(Po)
   <-
+  .print(P);
+  .print(Po);
   .eliminarElem([A], Ag, Ag1);
   .eliminarElem(P, Po, Po1);
   -+agents(Ag1);
@@ -52,8 +53,18 @@
   .print("Buscando otro medico en ", Ag1);
   -ocupado(_).
 
-+ir(R1)
++ir(R1) : mimedico(Med)
   <-
   .print("De camino a ", R1);
   .goto(R1);
+  .print("Le digo a donde voy a mi medico ",Med);
+  .send(Med,tell,destino(R1));
+  -ir(_).
+
++mimedico(Med) : ir(R1)
+  <-
+  .print("De camino a ", R1);
+  .goto(R1);
+  .print("Le digo a donde voy a mi medico ",Med);
+  .send(Med,tell,destino(R1));
   -ir(_).

@@ -1,6 +1,7 @@
 +flag (F)
   <-
-  .wait(2000);
+  ?position(Pi);
+  +posini(Pi);
   .get_service("general").
 
 +general(G)
@@ -10,8 +11,8 @@
 +seguir[source(A)]: not siguiendo
 <-
 ?name(N);
-?position(P);
-.send(A, tell, mybid(P));
+?posini(Pi);
+.send(A, tell, mybid(Pi));
 -seguir;
 .print("enviada propuesta de ayuda a ",A).
 
@@ -25,7 +26,12 @@
 
 +te_elijo[source(A)]: siguiendo
   <-
-  ?position(P);
-  .send(A, tell, ocupado(P));
+  ?posini(Pi);
+  .send(A, tell, ocupado(Pi));
   -te_elijo;
   .print("Ya estoy siguiendo a alguien").
+
++destino(R1)[source(A)]
+  <-
+  .goto(R1);
+  -destino(_).
