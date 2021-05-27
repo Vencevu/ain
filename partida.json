@@ -25,6 +25,13 @@
         "password": "secret",
         "amount": 1,
         "asl": "general.asl"
+      },
+      {
+        "rank": "BDIFieldOp",
+        "name": "fieldop",
+        "password": "secret",
+        "amount": 1,
+        "asl": "fieldops.asl"
       }
     ]
 }
