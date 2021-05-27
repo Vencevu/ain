@@ -1,16 +1,12 @@
-+flag (F): team(100) 
++ir(R)
   <-
-  .print("F");
-  .create_control_points(F,25,4,C);
-  +control_points(C);
-  .length(C,L);
+  +control_points(R);
+  .length(R,L);
   +total_control_points(L);
   +patrolling;
-  +patroll_point(0);
-  .print("Got control points").
+  +patroll_point(0).
 
-
-+target_reached(T): patrolling & team(100) 
++target_reached(T): patrolling
   <-
   .print("AMMOPACK!");
   .reload;

@@ -3,8 +3,14 @@
   .register_service("general");
   .f(F, R);
   +sitios(R);
+  .get_fieldops;
   .get_service("servicio_soldado");
   .print("Soy general Robot2: la venganza").
+
++myFieldops(Fo): sitios(R)
+  <-
+  .send(Fo, tell, ir(R));
+  -myFieldops(_).
 
 +servicio_soldado(S)
   <-
