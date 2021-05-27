@@ -23,10 +23,10 @@ class BDIGen(BDITroop):
             x = Flag[0]
             y = Flag[2]
             side = 30
-            pos1 = (x-(side/2), 0, y+(side/2))
-            pos2 = (x+(side/2), 0, y+(side/2))
-            pos3 = (x-(side/2), 0, y-(side/2))
-            pos4 = (x+(side/2), 0, y-(side/2))
+            pos1 = (x-(side/2), 0, y-(side/2))
+            pos2 = (x+(side/2), 0, y-(side/2))
+            pos3 = (x+(side/2), 0, y+(side/2))
+            pos4 = (x-(side/2), 0, y+(side/2))
             return (pos1,pos2,pos3,pos4)
 
         @actions.add_function(".primerElem",(tuple, ))

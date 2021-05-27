@@ -44,5 +44,20 @@ class BDISold(BDITroop):
             return l[:l.index(e)] + l[l.index(e) + 1:]
 
 
+        @actions.add_function(".dondeMiro",(tuple,tuple, ))
+        def _dondeMiro(flag,pos):
+            relX = pos[0] - flag[0]
+            relZ = pos[2] - flag[2]
+            print(relX)
+            print(relZ)
+            if relX > 0 and relZ > 0:
+                return (250,0,250)
+            elif relX > 0 and relZ < 0:
+                return (250,0,0)
+            elif relX < 0 and relZ < 0:
+                return (0,0,0)
+            else:
+                return  (0,0,250)
+
 
 

@@ -4,25 +4,37 @@
   +posini(Pi);
   .get_service("general").
 
-+general(G)
++friends_in_fov(ID,Type,Angle,Distance,Health,Pos): siguiendo(ID) //Seguimos a nuestro soldado asignado
   <-
-  .print("Mi general es ", G).
+  .goto(Pos).
 
-+seguir[source(A)]: not siguiendo
-<-
-?name(N);
-?posini(Pi);
-.send(A, tell, mybid(Pi));
--seguir.
-
-
-+te_elijo[source(A)]: not siguiendo
++seguir[source(A)]: not siguiendo(_) //Un soldado nos pide nuestra posición para que le sigamos
   <-
-  +siguiendo;
+  ?name(N);
+  ?posini(Pi);
+  .send(A, tell, mybid(Pi));
+  -seguir.
+
++target_reached(T)
+  <-
+  +curar.
+
+
++curar
+  <-
+  .print("Estoy curando");
+  .cure;
+  .wait(4000);
+  -+curar.
+
++te_elijo[source(A)]: not siguiendo(_) //Nos elige un soldado y no estamos asignados a ninguno
+  <-
+  +siguiendo(A);
   -te_elijo;
+  .print(A);
   .send(A, tell, asignado).
 
-+te_elijo[source(A)]: siguiendo
++te_elijo[source(A)]: siguiendo(_) //Nos elige un soldado pero ya estamos asignados a otro
   <-
   ?posini(Pi);
   .send(A, tell, ocupado(Pi));
