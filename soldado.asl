@@ -22,10 +22,12 @@
   ?miEsquina(Esquina);
   .goto(Esquina).
 
+//Disparamos a los enemigos que se acerquen
 +enemies_in_fov(ID, TYPE, ANGLE, DIST, HEALTH, [X,Y,Z]): not planDeEmergencia
   <-
   .shoot([X,Y,Z],5).
 
+//Perseguimos al enemigo y solicitamos refuezos
 +enemies_in_fov(ID, TYPE, ANGLE, DIST, HEALTH, [X,Y,Z]): planDeEmergencia & not persiguiendo
   <-
   +persiguiendo; //Declaramos que estamos persiguiendo
@@ -61,10 +63,11 @@
   -+pos(Po1);
   -mybid(_).
 
+//Elegimos el medico mas cercano
 +elegirmejor: agents(Ag) & pos(Po)
   <-
-  .masCercano(Ag, Po, X); //Esta función en python calcula cuál de los agentes es el más cercano
-  .send(X, tell, te_elijo). //Elige al agente más cercano
+  .masCercano(Ag, Po, X);
+  .send(X, tell, te_elijo).
 
 +asignado[source(Med)]: not mimedico(Med) //Un médico le pertenece ahora
   <-

@@ -1,6 +1,6 @@
 +flag (F): team(200) //Inicializamos
   <-
-  .register_service("general");
+  .register_service("general"); //Registramos el servicio del general
   .goto(F);
   .f(F, R); //Esta función calcula la formación Cuadrado para mandar a los soldados
   +sitios(R);
@@ -33,7 +33,7 @@
 
 +mandarTropas(S): sitios(R) & not(S == [])
   <-
-  .primerElem(S, S1); //Este metodo devuelve el primer elemento de una lista
+  .primerElem(S, S1);
   .primerElem(R, R1);
   .send(S1, tell, ir(R1)); //Mandamos a cada soldado su posición y la esquina del cuadrado que forma
   .del(0,S,Sn); //Borramos la posición de la lista

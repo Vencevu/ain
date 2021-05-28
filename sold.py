@@ -19,6 +19,15 @@ class BDISold(BDITroop):
 
         @actions.add_function(".masCercano", (tuple, tuple, ))
         def _masCercano(listaMedicos, listaPosiciones):
+            """
+            Devuelve el medico de la lista listaMedicos mas cercano a 
+            este agente segun la lista con las posiciones de los medicos respectivamente
+
+            param:  listaMedicos: Lista con los id de los médicos
+                    listaPosiciones: Lista con las posiciones de los médicos
+
+            return: Id del médico más cercano de la lista
+            """
             soldX = self.movement.position.x
             soldZ = self.movement.position.z
             elegido = []
@@ -28,7 +37,7 @@ class BDISold(BDITroop):
                 for med in listaPosiciones:
                     posX = med[0]
                     posZ = med[2]
-                    dist = abs(soldX-posX) + abs(soldZ-posZ)
+                    dist = abs(soldX-posX) + abs(soldZ-posZ)    #Calculamos la distancia entre el agente y el medico
                     if dist < minDist:
                         minDist = dist
                         elegido = listaMedicos[n]
@@ -37,6 +46,14 @@ class BDISold(BDITroop):
         
         @actions.add_function(".eliminarElem",(tuple,tuple, ))
         def _eliminarElem(elem,l):
+            """
+            Elimina el elemento elem de la lista l
+
+            param:  elem: Elemento a borrar
+                    l: Lista cuyo elemento queremos borrar
+            
+            return: Lista con elem quitado
+            """
             if len(elem) == 1:
                 e = elem[0]
             else:
@@ -46,6 +63,15 @@ class BDISold(BDITroop):
 
         @actions.add_function(".dondeMiro",(tuple,tuple, ))
         def _dondeMiro(flag,pos):
+            """
+            Devuelve un punto del mapa en funcion de la posicion del agente para que desde cada
+            esquina del cuadrado de nuestra formacion los soldados miren hacia sus cuatro vertices
+
+            param:  flag: Posición de la bandera
+                    pos: Posición actual del agente
+
+            return: Posición hacia donde debe mirar el agente
+            """
             relX = pos[0] - flag[0]
             relZ = pos[2] - flag[2]
             if relX > 0 and relZ > 0:

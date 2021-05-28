@@ -20,6 +20,14 @@ class BDIGen(BDITroop):
         
         @actions.add_function(".f", (tuple, ))
         def _f(Flag):
+            """
+            Devuelve los cuatro puntos del mapa respectivos a los vertices
+            de un cuadrado centrado en Flag y de lado side
+
+            param: Flag: posicion en la que centrar el cuadrado.
+
+            return: Tupla con los cuatro vertices del cuadrado
+            """
             x = Flag[0]
             y = Flag[2]
             side = 30
@@ -27,14 +35,27 @@ class BDIGen(BDITroop):
             pos2 = (x+(side/2), 0, y-(side/2))
             pos3 = (x+(side/2), 0, y+(side/2))
             pos4 = (x-(side/2), 0, y+(side/2))
-            return (pos1,pos2,pos3,pos4)
+            return (pos1,pos2,pos3,pos4) 
 
         @actions.add_function(".primerElem",(tuple, ))
         def _primerElem(l):
+            """
+            Devuelve el primer elemento de la lista l
+            
+            param: l: lista de la cual extraer el primer elemento.
+
+            return: primer elemento de la lista l.
+            """
             return l[0]
 
         @actions.add_function(".del", (int, tuple, ))
         def _del(pos, l):
+            """
+            Elimina el elemento de la posicion pos de la lista l
+
+            param:  pos: posición de la lista a borrar
+                    l: lista cuyo elemento queremos borrar
+            """
             if pos == 0:
                 return l[1:]
             elif pos == len(l) - 1:
