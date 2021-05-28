@@ -1,4 +1,4 @@
-+flag (F)
++flag (F): team(200)
   <-
   ?position(Pi);
   +posini(Pi);
@@ -22,7 +22,6 @@
 
 +curar
   <-
-  .print("Estoy curando");
   .cure;
   .wait(4000);
   -+curar.

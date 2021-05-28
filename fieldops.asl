@@ -1,4 +1,4 @@
-+ir(R)
++ir(R) //Recibo coordenadas
   <-
   +control_points(R);
   .length(R,L);
@@ -8,7 +8,6 @@
 
 +target_reached(T): patrolling
   <-
-  .print("AMMOPACK!");
   .reload;
   ?patroll_point(P);
   -+patroll_point(P+1);

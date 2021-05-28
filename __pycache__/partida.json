@@ -1,0 +1,46 @@
+{
+    "host": "localhost",
+    "manager": "m",
+    "manager_password": "secret",
+    "service": "s",
+    "service_password": "secret",
+    "axis": [
+      {
+        "rank": "BDIMedic",
+        "name": "med",
+        "password": "secret",
+        "amount": 4,
+        "asl": "medico.asl"
+      },
+      {
+        "rank": "sold.BDISold",
+        "name": "sold",
+        "password": "secret",
+        "amount": 4,
+        "asl": "soldado.asl"
+      },
+      {
+        "rank": "generalpy.BDIGen",
+        "name": "general",
+        "password": "secret",
+        "amount": 1,
+        "asl": "general.asl"
+      },
+      {
+        "rank": "BDIFieldOp",
+        "name": "fieldop",
+        "password": "secret",
+        "amount": 1,
+        "asl": "fieldops.asl"
+      }
+    ],
+    "allied": [
+      {
+        "rank": "BDIMedic",
+        "name": "allied_medic",
+        "password": "secret",
+        "amount": 1,
+        "asl": "bdimedic.asl"
+      } 
+    ]
+}

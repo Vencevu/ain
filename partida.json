@@ -4,31 +4,31 @@
     "manager_password": "secret",
     "service": "s",
     "service_password": "secret",
-    "allied": [
+    "axis": [
       {
         "rank": "BDIMedic",
-        "name": "med",
+        "name": "medic_alcargra_joactr",
         "password": "secret",
         "amount": 4,
         "asl": "medico.asl"
       },
       {
         "rank": "sold.BDISold",
-        "name": "sold",
+        "name": "soldier_alcargra_joactr",
         "password": "secret",
         "amount": 4,
         "asl": "soldado.asl"
       },
       {
         "rank": "generalpy.BDIGen",
-        "name": "general",
+        "name": "general_alcargra_joactr",
         "password": "secret",
         "amount": 1,
         "asl": "general.asl"
       },
       {
         "rank": "BDIFieldOp",
-        "name": "fieldop",
+        "name": "fieldop_alcargra_joactr",
         "password": "secret",
         "amount": 1,
         "asl": "fieldops.asl"

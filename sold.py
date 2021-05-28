@@ -51,13 +51,13 @@ class BDISold(BDITroop):
             print(relX)
             print(relZ)
             if relX > 0 and relZ > 0:
-                return (250,0,250)
+                return (220,0,220)
             elif relX > 0 and relZ < 0:
-                return (250,0,0)
+                return (220,0,30)
             elif relX < 0 and relZ < 0:
-                return (0,0,0)
+                return (30,0,30)
             else:
-                return  (0,0,250)
+                return  (30,0,220)
 
 
 
