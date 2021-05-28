@@ -1,6 +1,5 @@
 +flag (F): team(200) //Inicializamos
   <-
-  +fovObjects([]);
   .register_service("general");
   .goto(F);
   .f(F, R); //Esta función calcula la formación Cuadrado para mandar a los soldados
@@ -23,6 +22,7 @@
 
 +servicio_soldado(S) //Este servicio lo tienen todos los soldados
   <-
+  +misSoldados(S);
   +mandarTropas(S); //Mandamos las tropas cada una a una esquina
   -servicio_soldado(_).
 
@@ -42,8 +42,9 @@
   -mandarTropas(_);
   +continue(Sn).
 
-+enemies_in_fov(ID, TYPE, ANGLE, DIST, HEALTH, [X,Y,Z]): fovObjects(FOVObjects)
++enemies_in_fov(ID, TYPE, ANGLE, DIST, HEALTH, [X,Y,Z]): misSoldados(S)
   <-
+  .send(S, tell, alerta([X,Y,Z]));
   .shoot([X,Y,Z],5).
   
 

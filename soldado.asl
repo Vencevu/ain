@@ -101,3 +101,7 @@
   .dondeMiro(F,Pop,Esquina); //Funcion python que según donde se encuentre relativo a la bandera devuelve donde mirar
   +miEsquina(Esquina);
   .look_at(Esquina).
+
++alerta(EnePos)
+  <-
+  .goto(EnePos).
