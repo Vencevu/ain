@@ -48,8 +48,6 @@ class BDISold(BDITroop):
         def _dondeMiro(flag,pos):
             relX = pos[0] - flag[0]
             relZ = pos[2] - flag[2]
-            print(relX)
-            print(relZ)
             if relX > 0 and relZ > 0:
                 return (220,0,220)
             elif relX > 0 and relZ < 0:

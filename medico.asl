@@ -30,7 +30,6 @@
   <-
   +siguiendo(A);
   -te_elijo;
-  .print(A);
   .send(A, tell, asignado).
 
 +te_elijo[source(A)]: siguiendo(_) //Nos elige un soldado pero ya estamos asignados a otro

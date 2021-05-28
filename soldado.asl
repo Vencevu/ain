@@ -10,7 +10,6 @@
   .length(G, Len);
   if(Len==0){ //No hay general
     +planDeEmergencia;
-    
   }
   if(Len>0){ //Seguimos comprobando que está vivo
     .wait(2000);
@@ -45,7 +44,6 @@
 
 +myMedics(M)
 <-
-  .print(M);
   +agents([]);
   +pos([]);
   .send(M, tell, seguir); //Pide a un médico que le siga
@@ -55,7 +53,6 @@
 
 +mybid(Pos)[source(A)] //Recibe las respuestas de los médicos que pueden acompañarle
   <- 
-  .print("Recibo propuesta de un medico");
   ?agents(Ag);
   ?pos(Po); 
   .concat(Ag, [A], Ag1); //Va agregando a la lista el nombre del medico
@@ -66,20 +63,17 @@
 
 +elegirmejor: agents(Ag) & pos(Po)
   <-
-  .print("Voy a elegir al mejor medico");
   .masCercano(Ag, Po, X); //Esta función en python calcula cuál de los agentes es el más cercano
   .send(X, tell, te_elijo). //Elige al agente más cercano
 
 +asignado[source(Med)]: not mimedico(Med) //Un médico le pertenece ahora
   <-
-  .print("Mi medico es ", Med);
   -asignado;
   +mimedico(Med);
   -elegirmejor.
 
 +ocupado(P)[source(A)]: agents(Ag) & pos(Po) //El médico más cercano está ocupado
   <-
-  .print("el medico esta ocupado");
   .eliminarElem([A], Ag, Ag1); //Lo eliminamos de la lista
   .eliminarElem(P, Po, Po1);
   -+agents(Ag1);
@@ -89,8 +83,6 @@
 
 +ir(R1) : mimedico(Med) //Vamos a la posición que nos toca
   <-
-  .print("voy a ir a la formacion sin medico");
-  .print("De camino a ", R1);
   .goto(R1);
   .send(Med,tell,destino(R1));
   -ir(_).
@@ -98,8 +90,6 @@
 //Ahora que tenemos el médico ya podemos formar (está duplicado porque puede ser mandado a formar antes o despues de tener medico)
 +mimedico(Med) : ir(R1) 
   <-
-  .print("voy a la formacion con medico");
-  .print("De camino a ", R1);
   .goto(R1);
   .send(Med,tell,destino(R1));
   -ir(_).
